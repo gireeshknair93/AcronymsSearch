@@ -25,6 +25,7 @@ class AcronymsSearchViewController: UIViewController {
         viewModel.reloadAcronymsSearchResult = { [weak self] reloadMessage in
             self?.loader.isHidden = true
             if let reloadMessage = reloadMessage {
+                self?.searchInfoLabel.isHidden = false
                 self?.searchInfoLabel.text = reloadMessage
             } else {
                 self?.searchInfoLabel.isHidden = true
