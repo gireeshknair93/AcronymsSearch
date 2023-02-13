@@ -13,7 +13,7 @@ class AcronymsSearchViewModel {
     var reloadAcronymsSearchResult: ((_ reloadMessage: String?) -> Void)?
     var acronymsCellViewModels = [AcronymsCellViewModel]()
     var timer: Timer?
-    
+    //Creating the search service object via depedency injection
     init(acronymsSearchService: AcronymsSearchProtocol) {
         self.acronymsSearchService = acronymsSearchService
     }
@@ -41,6 +41,7 @@ class AcronymsSearchViewModel {
     }
     
     //MARK: API Response processing
+    //Clearing the existing search results
     private func clearSearch() {
         acronymsCellViewModels = []
     }
@@ -49,7 +50,7 @@ class AcronymsSearchViewModel {
         clearSearch()
         reloadAcronymsSearchResult?(Messages.apiError)
     }
-    
+    //Processing the api result response and creating the cell models
     private func fetchData(acronyms: [AcronymsSearchResponseModel]?) {
         clearSearch()
         if let acronyms = acronyms?.first {
@@ -65,10 +66,11 @@ class AcronymsSearchViewModel {
     }
     
     //MARK: Cell View Model
+    //Return the number of search result to be shown
     func numberOrRows() -> Int {
         return self.acronymsCellViewModels.count
     }
-    
+    //Return the cell view model for the corresponding cell based on the indexpath
     func getCellViewModel(at indexPath: IndexPath) -> AcronymsCellViewModel {
         return acronymsCellViewModels[indexPath.row]
     }

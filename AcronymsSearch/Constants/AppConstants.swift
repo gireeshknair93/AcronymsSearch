@@ -18,4 +18,11 @@ struct Messages {
     static let apiError = "Oops, there is an error while loading your acronyms. Please try again"
     static let emptySearchField = "Type a keyword to load the abbreviations"
     static let noResultFound = "Oops, We are not able to find any matches for your keyword."
+    static let xibLoadingError = "xib does not exists"
+}
+
+//Use this struct for all the api parameters name constants
+struct ApiParameters {
+    static let lf = "lf"
+    static let sf = "sf"
 }

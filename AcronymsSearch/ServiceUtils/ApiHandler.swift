@@ -42,6 +42,7 @@ struct ApiHandler {
 
 extension ApiHandler {
     
+    //Possible HTTP methods, add additional methods on need.
     enum HTTPMethod: String {
         case get = "GET"
         case post = "POST"

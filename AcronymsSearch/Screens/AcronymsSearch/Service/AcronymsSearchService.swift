@@ -17,7 +17,7 @@ struct AcronymsSearchService: AcronymsSearchProtocol {
     func getAcronyms(request: AcronymsSearchRequest, completion: @escaping ([AcronymsSearchResponseModel]?, ApiError?) -> ()) {
         var urlComponents = URLComponents(string: ApiEndPoints.search)
         //Adding the query params
-        urlComponents?.queryItems = [URLQueryItem(name: "ls", value: request.lf), URLQueryItem(name: "sf", value: request.sf)]
+        urlComponents?.queryItems = [URLQueryItem(name: ApiParameters.lf, value: request.lf), URLQueryItem(name: ApiParameters.sf, value: request.sf)]
         ApiHandler.shared.callGetService(url: urlComponents?.url, resultModel: [AcronymsSearchResponseModel].self) { result in
             switch result {
             case .success(let acronyms):

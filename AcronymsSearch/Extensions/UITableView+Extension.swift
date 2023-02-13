@@ -17,6 +17,7 @@ extension UITableView {
 }
 
 extension UITableViewCell {
+    //To get the cell identifier, using the cell identifier same as the cell name
     static var identifier: String {
         return String(describing: self)
     }
